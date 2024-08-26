@@ -49,7 +49,7 @@ class fish{
 
         var r = Math.random();
         if(r > 0.95 && r< 0.96 ){
-            this.medium.breath(this);
+            this.breath(this);
             console.log('blub!');
         }
         
@@ -73,5 +73,13 @@ class fish{
         this.xOff+=0.01;
         this.yOff+=0.01;
         this.zOff+=0.01;
+    }
+
+    breath = ()=>{
+        var bX= this.isFacingRight(this.x)?this.x+(32*this.z):this.x;
+        var bY = this.y+16*this.z;
+        var b = new bubble(this.ctx,bX,bY,this.z);
+        // b.soundEngine = env.soundEngine;
+        this.medium.bubbles.push(b);
     }
 }
