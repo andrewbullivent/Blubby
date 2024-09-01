@@ -1,5 +1,6 @@
 class Water{
     bubbles = [];
+    feedActions = []
 
     processBubbles= ()=>{
         for (var i = 0; i< this.bubbles.length;i++) {

@@ -55,12 +55,12 @@ class fish{
         
         var fishImg;
         if(this.isFacingRight()) {
-            this.contrastFish(this.fishRight, 100*(this.z+0.1));
-            //this.ctx.drawImage(this.fishRight,this.x,this.y,this.z*32,32*this.z);            
+            // this.contrastFish(this.fishRight, 100*(this.z+0.1));
+            this.ctx.drawImage(this.fishRight,this.x,this.y,this.z*32,32*this.z);            
         }
         else {
-            this.contrastFish(this.fishLeft, 100*(this.z+0.1));
-            //this.ctx.drawImage(this.fishLeft,this.x,this.y,this.z*32,this.z*32);            
+            // this.contrastFish(this.fishLeft, 100*(this.z+0.1));
+            this.ctx.drawImage(this.fishLeft,this.x,this.y,this.z*32,this.z*32);            
         }
 
 

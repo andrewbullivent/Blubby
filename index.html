@@ -36,7 +36,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="">
         <canvas id="myCanvas" width="1072" height="816">
 
 
@@ -48,19 +48,51 @@
         <script src="sounds.js"></script>
         <script src="water.js"></script>
         <script src="gameEngine.js"></script>
+        <script src="feed.js"></script>
+
         <script>
-            var eng = new GameEngine();
-            eng.gameStart();
+            window.onload = ()=>{
+                let closePopup = document.getElementById("startGame");
+                let myPopup = document.getElementById("popup-box");
+                closePopup.addEventListener(
+                    "click",
+                    function () {
+                        myPopup.classList.add("show");
+                    }
+                );
+                closePopup.addEventListener(
+                    "click",
+                    function () {
+                        myPopup.classList.remove(
+                            "show"
+                        );
+                        var eng = new GameEngine();
+                        eng.gameStart();
+                    }
+                );
+                window.addEventListener(
+                    "click",
+                    function (event) {
+                        if (event.target == myPopup) {
+                            myPopup.classList.remove(
+                                "show"
+                            );
+                            var eng = new GameEngine();
+                            eng.gameStart();
+                        }
+                    }
+                );
+            }
         </script>
         
-        <!-- <div id="popup-box" class="modal show">
-            <div class="content">
+        <div id="popup-box" class="popup show">
+            <div class=" popup-content ">
                 <h1 style="color: green">
-                    Bubble!
+                    Blubby!
                 </h1>
                 <p>Click to start</p>
-                <button id="closePopup">
-                    Close
+                <button type="button" id="startGame">
+                    Start
                 </button>
                 <a href="#" style="
                             position: absolute;
@@ -71,7 +103,7 @@
                             text-decoration: none;
                         ">&times;</a>
             </div>
-        </div> -->
+        </div>
     </body>
 </html>
 
